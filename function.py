@@ -1,12 +1,15 @@
+import pygame_gui
 import pygame
 import sys
+import welcome as wel
+import order
+import change
 
-def check_event(setting, screen):
-    events = pygame.event.get()
-    for event in events:
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
+def solve(setting, screen, img):
 
-def upd_screen(setting, screen):
-    screen.fill(setting.bg_color)
+    if setting.status == 0:
+        wel.Welcome(setting, screen, img)
+    elif setting.status == 1:
+        order.Order(setting, screen, img)
+    elif setting.status == 2:
+        change.ChangePart(setting, screen, img)
